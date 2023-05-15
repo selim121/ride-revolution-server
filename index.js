@@ -4,12 +4,15 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 4000;
-const services = require('./data/services.json');
 
 
 //middleware
 app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Ride Revolution is running');
+})
 
 
 // console.log(process.env.DB_PASS);
@@ -95,13 +98,6 @@ async function run() {
 run().catch(console.dir);
 
 
-app.get('/', (req, res) => {
-    res.send('Ride Revolution is running');
-})
-
-app.get('/services', (req, res) => {
-    res.send(services);
-})
 
 app.listen(port, () => {
     console.log(`Ride Revolution is running on port ${port}`);
