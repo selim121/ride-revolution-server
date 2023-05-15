@@ -4,6 +4,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 4000;
+const services = require('./data/services.json');
 
 
 //middleware
@@ -95,7 +96,11 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Ride Revolution is running')
+    res.send('Ride Revolution is running');
+})
+
+app.get('/', (req, res) => {
+    res.send(services);
 })
 
 app.listen(port, () => {
