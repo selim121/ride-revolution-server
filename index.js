@@ -99,7 +99,7 @@ app.get('/', (req, res) => {
     res.send('Ride Revolution is running');
 })
 
-app.get('/', (req, res) => {
+app.get('/services', (req, res) => {
     res.send(services);
 })
 
